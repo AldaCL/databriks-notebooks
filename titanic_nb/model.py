@@ -1,34 +1,29 @@
 # Databricks notebook source
-import numpy as np
 import pandas as pd
 
 # visualization
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+# sklearn
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 
-from sklearn.model_selection import cross_val_predict
-from sklearn.metrics import confusion_matrix
-from sklearn.inspection import permutation_importance
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
-
-from collections import Counter
 
 
 # COMMAND ----------
 
 # MAGIC %md
 # MAGIC ## 💾 Loading Data
-# MAGIC 
+# MAGIC
 # MAGIC This code block reads in the training and test data for the Titanic sinking competition from CSV files located in the input directory. It uses Pandas' read_csv() function to read in the data and store it as a DataFrame.
-# MAGIC 
+# MAGIC
 # MAGIC The train_df DataFrame contains the training data, which includes features such as passenger class, age, and sex, as well as the target variable of survival status. The test_df DataFrame contains the test data, which includes the same features as the training data, but the target variable of survival status is not included.
-# MAGIC 
+# MAGIC
 # MAGIC The last line of code appends the test data to the training data to create a single DataFrame called data_df. This is often done in data preprocessing to allow for consistent feature engineering and transformation across the entire dataset
 
 # COMMAND ----------
