@@ -28,11 +28,17 @@ from sklearn.decomposition import PCA
 
 # COMMAND ----------
 
-gender_df = pd.read_csv("/dbfs/FileStore/shared_uploads/aldair.alda27@gmail.com/gender_submission.csv")
-test_df = pd.read_csv("/dbfs/FileStore/shared_uploads/aldair.alda27@gmail.com/test.csv")
-train_df = pd.read_csv("/dbfs/FileStore/shared_uploads/aldair.alda27@gmail.com/train.csv")
+# gender_df = pd.read_csv("/dbfs/FileStore/shared_uploads/aldair.alda27@gmail.com/gender_submission.csv")
+# test_df = pd.read_csv("/dbfs/FileStore/shared_uploads/aldair.alda27@gmail.com/test.csv")
+# train_df = pd.read_csv("/dbfs/FileStore/shared_uploads/aldair.alda27@gmail.com/train.csv")
 
-data_df = train_df.append(test_df)
+gender_df = pd.read_csv("datasource/gender_submission.csv")	
+test_df = pd.read_csv("datasource/test.csv")
+train_df = pd.read_csv("datasource/train.csv")
+
+# data_df = train_df.append(data_df)
+data_df = pd.concat([train_df, test_df], sort=False)
+
 
 # COMMAND ----------
 
@@ -382,3 +388,4 @@ f, ax = plt.subplots(1, 2, figsize=(18,8))
 sns.scatterplot(data=pca_df_1, x='PC1', y='PC2', hue='y_pred', ax=ax[0])
 sns.scatterplot(data=pca_df_2, x='PC1', y='PC2', hue='y_pred', ax=ax[1])
 plt.show()
+plt.savefig('knn.png')

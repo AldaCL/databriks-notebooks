@@ -3,3 +3,6 @@
 .data
 venv/*
 datasource/*
+results/*
+*.png
+*.jpg
