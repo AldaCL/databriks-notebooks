@@ -6,3 +6,4 @@ datasource/*
 results/*
 *.png
 *.jpg
+.data_processing/__pycache__/*
