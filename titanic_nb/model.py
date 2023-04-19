@@ -7,9 +7,6 @@ import matplotlib.pyplot as plt
 
 # sklearn
 from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import GridSearchCV
-from sklearn.neighbors import KNeighborsClassifier
-
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
 
@@ -17,7 +14,6 @@ from sklearn.decomposition import PCA
 from data_processing import load_data
 from data_processing import features
 from data_processing import processing
-from data_processing import ploting
 
 
 # Loads datasources
@@ -96,7 +92,7 @@ pca_df_1 = pd.DataFrame(data=X_pca, columns=['PC1', 'PC2'])
 pca_df_1['y_pred'] = y_pred_1
 
 # Plot clusters using seaborn
-f, ax = plt.plot(figsize=(18, 8))
+f = plt.figure()
 sns.scatterplot(data=pca_df_1, x='PC1', y='PC2', hue='y_pred')
 plt.show()
 plt.savefig('knn_classified.png')

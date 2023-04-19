@@ -91,22 +91,22 @@ def feature_bins(data_df: pd.DataFrame,
     return data_df
 
 
-def get_train_df(df_data: pd.DataFrame,
+def get_train_df(data_df: pd.DataFrame,
                  nrow: int) -> pd.DataFrame:
     """
     Get training dataframe
     """
-    train_df = df_data.copy().iloc[:nrow, :]
+    train_df = data_df.copy().iloc[:nrow, :]
     train_df.drop(columns=['Name', 'PassengerId', 'SibSp', 'Parch', 'Ticket',
                            'Cabin', 'Embarked', 'Lastname', 'FareBin', 'AgeBin'], inplace=True)
     return train_df
 
 
-def get_test_df(df_data: pd.DataFrame, nrow: int) -> pd.DataFrame:
+def get_test_df(data_df: pd.DataFrame, nrow: int) -> pd.DataFrame:
     """
     Get test dataframe
     """
-    test_df = df_data.copy().iloc[nrow:, :]
+    test_df = data_df.copy().iloc[nrow:, :]
     test_df.drop(columns=['Name', 'PassengerId', 'SibSp', 'Parch', 'Ticket',
                           'Cabin', 'Embarked', 'Lastname', 'FareBin', 'Survived', 'AgeBin'], inplace=True)
 
