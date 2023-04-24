@@ -1,5 +1,6 @@
-import pandas as pd
 import os
+
+import pandas as pd
 
 
 def get_dataframe(filename: str) -> pd.DataFrame:
@@ -9,7 +10,6 @@ def get_dataframe(filename: str) -> pd.DataFrame:
     """
 
     dbfs_usr_path = "/dbfs/FileStore/shared_uploads/aldair.alda27@gmail.com"
-
     if "DATABRICKS_RUNTIME_VERSION" in os.environ:
         path = f"{dbfs_usr_path}/{filename}.csv"
     else:
