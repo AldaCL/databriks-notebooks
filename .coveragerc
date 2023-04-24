@@ -1,0 +1,7 @@
+[run]
+source = titanic_nb
+
+[report]
+omit =
+    *__init__.py
+    *tests/*

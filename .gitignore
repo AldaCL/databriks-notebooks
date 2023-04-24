@@ -7,3 +7,4 @@ results/*
 *.png
 *.jpg
 .data_processing/__pycache__/*
+*.pyc
