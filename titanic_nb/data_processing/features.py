@@ -5,7 +5,20 @@ from sklearn.preprocessing import LabelEncoder
 
 def clean_names(data_df: pd.DataFrame) -> pd.DataFrame:
     """
-    Clean name column, extract Title and Lastname, and impute missing Age values.
+    Clean the Name column in the Titanic dataset, extract Title and Lastname, and impute missing Age values
+    based on the median Age for each Title.
+
+    This function performs the following tasks:
+    1. Extracts the Title from the Name column and creates a new Title column.
+    2. Replaces rare titles with more common ones in the Title column.
+    3. Imputes missing Age values based on the median Age for each Title.
+    4. Drops the Title column as it's no longer needed.
+    5. Extracts the Lastname from the Name column and creates a new Lastname column.
+
+    :param data_df: The original DataFrame containing the Titanic dataset.
+    :type data_df: pd.DataFrame
+    :return: The DataFrame with cleaned Name column, imputed Age values, and new Lastname column.
+    :rtype: pd.DataFrame
     """
     # Extract Title from Name
     data_df["Title"] = data_df["Name"].str.extract(r"([A-Za-z]+)\.", expand=True)

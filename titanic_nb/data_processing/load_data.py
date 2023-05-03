@@ -5,8 +5,11 @@ import pandas as pd
 
 def get_dataframe(filename: str) -> pd.DataFrame:
     """
-    Load dataframes from a csv file or from dbfs,
-    depending on the os.environ
+    Load a DataFrame from a CSV file or from DBFS, depending on the presence of the DATABRICKS_RUNTIME_VERSION
+    environment variable.
+
+    This function checks if the DATABRICKS_RUNTIME_VERSION environment variable is set. If it is set, it loads the
+    DataFrame from the DBFS path; otherwise, it loads the DataFrame from the local datasource path.
     """
 
     dbfs_usr_path = "/dbfs/FileStore/shared_uploads/aldair.alda27@gmail.com"
