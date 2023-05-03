@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from titanic_nb.data_processing.processing import fit_grid_search, get_predictions
+from data_processing.processing import fit_grid_search, get_predictions
 
 
 def test_fit_grid_search(mocker):
@@ -11,7 +11,7 @@ def test_fit_grid_search(mocker):
 
     # Mock the GridSearchCV class and its fit method
     mock_grid_search_cv = mocker.patch(
-        "titanic_nb.data_processing.processing.GridSearchCV"
+        "data_processing.processing.GridSearchCV"
     )
     mock_grid_search = mocker.Mock()
     mock_grid_search_cv.return_value = mock_grid_search
@@ -49,7 +49,7 @@ def test_get_predictions(mocker):
 
     # Mock the KNeighborsClassifier class and its methods
     mock_kneighbors_classifier = mocker.patch(
-        "titanic_nb.data_processing.processing.KNeighborsClassifier"
+        "data_processing.processing.KNeighborsClassifier"
     )
     mock_knn = mocker.Mock()
     mock_kneighbors_classifier.return_value = mock_knn
